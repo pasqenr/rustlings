@@ -24,7 +24,7 @@ pub fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
     
     match item_quantity.parse::<i32>() {
         Ok(qty) => Ok(qty * cost_per_item + processing_fee),
-        Result::Err => ParseIntError,
+        Err(e) => Err(e),
     }
 }
 
